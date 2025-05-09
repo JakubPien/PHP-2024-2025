@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>T50 - dane</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Zadanie T50 - czytanie danych z formularza i wykonywanie operacji matematycznych</h1>
+    <h2>Autor: Jakub Pieniężny 2p</h2>
+</header>
+
+<section>
+
+    <pre>
+    Zapoznaj się z materiałem lekcji  i wykonaj zadanie w którym użytkownik za pomocą formularza wprowadza następujące dane:
+
+imię (łańcuch znaków)
+nie więcej niż cztery liczby.
+Skrypt odczytuje te dane i w pliku wynik.php odpowiada:
+
+"Witaj" z imieniem podanym przez użytkownika "na mojej stronie!!!".
+
+np. Witaj Jolka na mojej stronie!!!
+
+Pozostałe wartości zapisuje w tablicy, wyświetla tą tablicę (za pomocą var_dump) i po konwersji wypisuje sumę oraz średnią podanych wartości.
+
+Uwaga!!!
+
+Skrypt powinien działać nawet jeśli użytkownik zamiast liczb wprowadzi łańcuch znaków.
+Obliczając średnią sprawdźcie, ile liczb znajduje się w tablicy (4 to wartość maksymalna, ale może ich być mniej, bo użytkownik podał łańcuch znaków, który nie da się przekonwertować na liczbę. Aby mianownik w średniej był różny od 0 zakładamy, że użytkownik podał przynajmniej jedną liczbę prawidłowo).
+    </pre>
+
+    <form action="index.php" method="post">
+        podaj imie: <input type="text" name="imie"><br>
+        podaj a: <input type="text" name="liczba1"><br>
+        podaj b: <input type="text" name="liczba2"><br>
+        podaj c: <input type="text" name="liczba3"><br>
+        podaj d: <input type="text" name="liczba4"><br>
+        <input type="submit" value="Wyślij">
+    </form>
+
+</section>
+
+</body>
+</html>
