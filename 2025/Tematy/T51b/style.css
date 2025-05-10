@@ -1,7 +1,6 @@
 body {
     background-color: antiquewhite;
     color: brown;
-    font-family: "Arial";
     font-size: 19px;
 }
 
@@ -26,4 +25,9 @@ li {
 img {
     border: 5px solid brown;
     margin: auto;
+}
+
+pre {
+    background-color: brown;
+    color: wheat;
 }
