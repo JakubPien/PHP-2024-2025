@@ -1,0 +1,18 @@
+<?php
+
+function wbz1($x)
+{
+ if ($x > 0) return "$x";
+ else return $x * -1;
+} ////////////////////////////////////////////
+
+
+
+
+
+
+
+echo wbz1(-12)."<br>";
+echo wbz1(32);
+
+
