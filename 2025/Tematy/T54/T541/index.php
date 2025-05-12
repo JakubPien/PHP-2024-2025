@@ -12,7 +12,7 @@ function wbz1($x)
 
 
 
-echo wbz1(-12)."<br>";
+echo wbz1(-12)."\n";
 echo wbz1(32);
 
 
