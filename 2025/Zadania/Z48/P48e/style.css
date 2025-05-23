@@ -1,0 +1,29 @@
+body {
+    background-color: antiquewhite;
+    color: brown;
+    font-family: "Arial";
+    font-size: 19px;
+}
+
+header {
+    background-color: brown;
+    color: bisque;
+    padding: 20px;
+}
+
+section {
+    background-color: antiquewhite;
+    border : brown 1px solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+li {
+    font-size: 20px;
+}
+
+img {
+    border: 5px solid brown;
+    margin: auto;
+}
