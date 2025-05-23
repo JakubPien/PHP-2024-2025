@@ -23,17 +23,15 @@ wyświetla wzorcową 10 znakową tablicę,
 wyświetla podaną ilość słów składających się z podanej ilości znaków wygenerowanych ze znaków zapisanych w 10-elementowej tablicy stworzonej na początku programu.
     </pre>
      <form method="post">
-        <fieldset>
-            <legend>Podaj 10 znaków:</legend>
-            <?php
-            for ($i = 0; $i < 10; $i++) {
-                echo 'Znak ' . ($i + 1) . ': <input type="text" name="znak[]" maxlength="1" required><br>';
-            }
-            ?>
-        </fieldset>
-        <br>
-        Długość słowa: <input type="number" name="dlugosc" min="1" required><br><br>
-        Ilość słów: <input type="number" name="ilosc" min="1" required><br><br>
+         Podaj dokładnie 10 znaków:<br>
+         <input type="text" name="znaki" maxlength="10" required><br><br>
+
+        Długość słowa:<br>
+         <input type="number" name="dlugosc" min="1" required><br><br>
+
+        Ilość słów:<br>
+         <input type="number" name="ilosc" min="1" required><br><br>
+
         <input type="submit" value="Generuj słowa">
     </form>
 </section>
@@ -43,26 +41,33 @@ wyświetla podaną ilość słów składających się z podanej ilości znaków 
 
 
     <?php
-    $tablicaZnakow = $_POST["znak"];
-        $dlugoscSlowa = (int)$_POST["dlugosc"];
-        $iloscSlow = (int)$_POST["ilosc"];
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $znaki = $_POST["znaki"];
+        $dlugosc = (int)$_POST["dlugosc"];
+        $ilosc = (int)$_POST["ilosc"];
 
-        if (count($tablicaZnakow) == 10 && $dlugoscSlowa > 0 && $iloscSlow > 0) {
+        if (strlen($znaki) != 10) {
+            echo "<p>Podaj dokładnie 10 znaków!</p>";
+        } elseif ($dlugosc <= 0 || $ilosc <= 0) {
+            echo "<p>Długość słowa i ilość słów muszą być większe od zera.</p>";
+        } else {
+            $tablica = str_split($znaki);
             echo "<h2>Wzorcowa tablica znaków:</h2>";
-            echo implode(" ", $tablicaZnakow) . "<br><br>";
+            echo "<pre>";
+            print_r($tablica);
+            echo "</pre>";
 
             echo "<h2>Wygenerowane słowa:</h2>";
-            for ($i = 0; $i < $iloscSlow; $i++) {
+            for ($i = 0; $i < $ilosc; $i++) {
                 $slowo = "";
-                for ($j = 0; $j < $dlugoscSlowa; $j++) {
+                for ($j = 0; $j < $dlugosc; $j++) {
                     $index = rand(0, 9);
-                    $slowo .= $tablicaZnakow[$index];
-                }        
+                    $slowo .= $znaki[$index];
+                }
                 echo $slowo . "<br>";
             }
-        } else {
-            echo "<p style='color:red;'>Upewnij się, że podałeś 10 znaków oraz poprawne liczby.</p>";
         }
+    }
     ?>
 </section>
 
