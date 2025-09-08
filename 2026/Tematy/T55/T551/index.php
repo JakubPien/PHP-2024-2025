@@ -13,19 +13,15 @@
 <section>
 <?php
 function sumaDwochNajmniejszych($numbers) {
-    // Sprawdzamy, czy tablica zawiera co najmniej dwie liczby
     if (count($numbers) < 2) {
         return "Tablica musi zawierać przynajmniej dwie liczby.";
     }
 
-    // Sortujemy tablicę rosnąco
     sort($numbers);
 
-    // Zwracamy sumę dwóch pierwszych liczb w posortowanej tablicy
     return $numbers[0] + $numbers[1];
 }
 
-// Przykładowe dane
 $numbers = [2,5,3,2,1,5,67,3];
 
 
