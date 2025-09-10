@@ -16,24 +16,26 @@
 </section>
 <section>
     <?php
+    function zapisWK() {
+        $zawartosc = file_get_contents("imiona.txt");
+        echo nl2br($zawartosc);
+    }
 
-    function wyswietlTekst() {
-        if (file_exists("narodoweCzytanie.txt")) {
-            $zawartosc =  file_get_contents("narodoweCzytanie.txt");
-            echo nl2br($zawartosc);
-        } else {
-            echo "Nie znaleziono pliku";
+    function zapisWO() {
+        $zawartosc = file("imiona.txt");
+        $zawartosc = array_reverse($zawartosc);
+        foreach ($zawartosc as $zawartosc) {
+            echo $zawartosc. " <br>";
         }
-    } ;
+    }
 
-    $plik = "narodoweCzytanie.txt";
+    echo "W kolejności zapisu. <br>";
+    zapisWK();
+    echo "<br> <br>";
+    echo "W odwrotnej kolejności zapisu. <br>";
+    zapisWO();
 
-    file_put_contents($plik, "W TYM ROKU NARODOWE CZYTANIE POD HONOROWYM PATRONATEM PARY PREZYDENCKIEJ ODBĘDZIE SIĘ 08.09.2018 R. W STULECIE ODZYSKANIA NIEPODLEGŁOŚCI WYBRANO POWIEŚĆ STEFANA ŻEROMSKIEGO „PRZEDWIOŚNIE”.
-    WŁĄCZAJĄC SIĘ DO OGÓLNOPOLSKIEJ AKCJI, ZAPRASZAMY DO WSPÓLNEGO CZYTANIA W NASZEJ SZKOLE W PRZEDDZIEŃ TEGO WYDARZENIA 07.09.2018 R.
-    NA DRUGIEJ GODZINIE LEKCYJNEJ W AULI SZKOLNEJ. CZYTAĆ BĘDĄ UCZNIOWIE KLASY 2M.
-    FORMUŁA SPOTKANIA NIE JEST ZAMKNIĘTA – KAŻDY MOŻE PRZYŁĄCZYĆ SIĘ DO CZYTANIA LUB SŁUCHANIA.");
 
-    wyswietlTekst();
     ?>
 </section>
 

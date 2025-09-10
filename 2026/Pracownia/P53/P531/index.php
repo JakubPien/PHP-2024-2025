@@ -22,9 +22,9 @@
 </section>
 <section>
     <?php
-    $plik1 = fopen("nazwisko_i_imie.txt", "w");
-    $plik2 = fopen("doSkasowania.txt", "r");
-    fclose($plik2);
+    touch('nazwisko_i_imie.txt');
+    touch('doSkasowania.txt');
+    unlink('doSkasowania.txt');
     $folder = "Pieniężny";
     $plik3 = $folder . "/nazwisko_i_imie.txt";
 
