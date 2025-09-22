@@ -1,68 +1,98 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>P58</title>
+    <meta charset="UTF-8">
+    <title>Zadanie P58</title>
 </head>
 <body>
 
 <header>
     <h1>Zadanie P58</h1>
-    <h2>Autor: Jakub Pieniężny</h2>
+    <h2>Autor: Jakub Pieniężny 3P</h2>
 </header>
 
-<section>
-    <p>PHP pobieranie danych za pomocą formularza
+<p>
+<hr>
+    PHP pobieranie danych za pomocą formularza
 
 
-        Zapoznaj się z rozdziałem podręcznika. Opracuj własny formularz i skrypt pobierający dane. Do wykonania zadania użyj różne komponenty formularzy. Przykładowy wygląd formularza pokazany jest na załączonej grafice.</p>
+    Zapoznaj się z rozdziałem podręcznika. Opracuj własny formularz i skrypt pobierający dane. Do wykonania zadania użyj różne komponenty formularzy. Przykładowy wygląd formularza pokazany jest na załączonej grafice.
+<hr>
+</p>
 
+<h1>Formularz konkursu „Podrasuj swoje buty!”</h1>
+<p>
+    Chcesz zamienić swoje stare trampki na nową parę zaprojektowanych przez siebie butów Forcefield?
+    Napisz nam, dlaczego sądzisz, że powinieneś <i>pożegnać się</i> ze swoimi wysłużonymi butami,
+    a być może zostaniesz jednym z laureatów konkursu!
+</p>
 
-    <fieldset name="Podstawowe dane:">
-        <form action="index.php" method="post">
-            Imię i nazwisko: <input type="text" name="name">
-            E-mail: <input type="email" name="email">
-            Telefon: <input type="number" name="tel">
-            Moje buty są takie stare...
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-
-        </form>
+<form method="post">
+    <fieldset>
+        <legend>Podstawowe dane</legend>
+        Imię i nazwisko: <input type="text" name="imie"><br><br>
+        E-mail: <input type="email" name="email"><br><br>
+        Telephone: <input type="text" name="telefon"><br><br>
+        Moje buty są TAKIE stare...<br>
+        <textarea name="opis" rows="5" cols="60" maxlength="300" ></textarea>
     </fieldset>
 
-    <h2><b>Zaprojektuj własne trampki:</b></h2>
+    <fieldset>
+        <legend>Zaprojektuj własne trampki:</legend>
 
-    <fieldset name="Własny projekt butów">
         <fieldset>
-        <form action="index.php" method="post">
-            <input type="radio" name="color" value="red" >czerwony
-            <input type="radio" name="color" value="blue" checked>niebieski
-            <input type="radio" name="color" value="black" >czarny
-            <input type="radio" name="color" value="silver" >srebrny
-        </form>
+            <legend>Kolor (<i>wybierz jeden</i>):</legend>
+            <label><input type="radio" name="kolor" value="czerwony"> czerwony</label><br>
+            <label><input type="radio" name="kolor" value="niebieski" checked> niebieski</label><br>
+            <label><input type="radio" name="kolor" value="czarny"> czarny</label><br>
+            <label><input type="radio" name="kolor" value="srebrny"> srebrny</label>
         </fieldset>
-        <fieldset>
-        <form action="index.php" method="post">
-            <input type="checkbox" name="opcje[]" value="bl_sz">Błyszczące sznurówki
-            <input type="checkbox" name="opcje[]" value="me_lo">Metalowe logo
-            <input type="checkbox" name="opcje[]" value="sw_po">Świecąca podeszwa
-            <input type="checkbox" name="opcje[]" value="od_mp">Odtwarzacz MP3
-        </form>
-            </fieldset>
-        <fieldset>
-        <form action="index.php" method="post">
-            Rozmiar zgodny ze standardowymi numerami butów: <input type="">
-        </form>
-    </fieldset>
-    </fieldset>
-        <button type="submit">Podrasuj swoje buty!</button> <button type="reset">Resetuj</button>
 
-</section>
+        <fieldset>
+            <legend>Opcje (<i>możesz wybrać kilka</i>):</legend>
+            <label><input type="checkbox" name="opcje[]" value="Błyszczące sznurówki"> Błyszczące sznurówki</label><br>
+            <label><input type="checkbox" name="opcje[]" value="Metalowe logo" checked> Metalowe logo</label><br>
+            <label><input type="checkbox" name="opcje[]" value="Świecące podeszwy" checked> Świecące podeszwy</label><br>
+            <label><input type="checkbox" name="opcje[]" value="Odtwarzanie MP3"> Odtwarzanie MP3</label>
+        </fieldset>
 
+        <fieldset>
+            <legend>Rozmiar</legend>
+            Rozmiar zgodny ze standardowymi numerami butów:
+            <select name="rozmiar">
+                <?php
+                for ($i = 35; $i <= 50; $i++) {
+                    echo "<option value=\"$i\">$i</option>";
+                }
+                ?>
+            </select>
+        </fieldset>
+    </fieldset>
+
+    <input type="submit" value="Podrasuj swoje buty!">
+    <input type="reset" value="Resetuj">
+</form>
+
+<?php if ($_SERVER["REQUEST_METHOD"] === "POST"): ?>
+    <section>
+        <h2>Twoje zgłoszenie:</h2>
+        <p><strong>Imię i nazwisko:</strong> <?= htmlspecialchars($_POST["imie"]) ?></p>
+        <p><strong>E-mail:</strong> <?= htmlspecialchars($_POST["email"]) ?></p>
+        <p><strong>Telefon:</strong> <?= htmlspecialchars($_POST["telefon"]) ?></p>
+        <p><strong>Opis butów:</strong><br> <?= nl2br(htmlspecialchars($_POST["opis"])) ?></p>
+        <p><strong>Kolor:</strong> <?= htmlspecialchars($_POST["kolor"] ?? "nie wybrano") ?></p>
+        <p><strong>Opcje:</strong>
+            <?php
+            if (!empty($_POST["opcje"])) {
+                echo implode(", ", array_map("htmlspecialchars", $_POST["opcje"]));
+            } else {
+                echo "brak";
+            }
+            ?>
+        </p>
+        <p><strong>Rozmiar:</strong> <?= htmlspecialchars($_POST["rozmiar"]) ?></p>
+    </section>
+<?php endif; ?>
 </body>
 </html>
-
-
