@@ -56,12 +56,12 @@
     while ($row = mysqli_fetch_assoc($result)) {
         $color = $row["color"];
         echo "<tr>
-            <td>{$row['id']}.</td>
-            <td>{$row['first_name']}</td>
-            <td>{$row['last_name']}</td>
-            <td>{$row['email']}</td>
-            <td>{$row['gender']}</td>
-            <td>{$row['ip_address']}</td>
+            <td bgcolor='$color'>{$row['id']}.</td>
+            <td bgcolor='$color'>{$row['first_name']}</td>
+            <td bgcolor='$color'>{$row['last_name']}</td>
+            <td bgcolor='$color'>{$row['email']}</td>
+            <td bgcolor='$color'>{$row['gender']}</td>
+            <td bgcolor='$color'>{$row['ip_address']}</td>
             <td bgcolor='$color'>{$row['color']}</td>
             
           </tr>";
