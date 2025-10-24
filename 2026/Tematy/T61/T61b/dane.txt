@@ -1,3 +1,3 @@
-1;Jakub;Pieniezny   ;jakub.pieniezny@onet.pl
+1;Jakub;Pieniezny;jakub.pieniezny@onet.pl
 2;Jozef;Maszynski;jozef@op.pl
 3;Jan;Maciek;jakmnik@gmail.com

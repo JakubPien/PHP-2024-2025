@@ -28,7 +28,6 @@
         <input type="submit" name="stworz" id="stworz" value="Stwórz tabelę">
         <input type="submit" name="zaladuj" id="zaladuj" value="Załaduj tabelę">
         <input type="submit" name="wyswietl" id="wyswietl" value="Wyświetl zawartość">
-        <input type="submit" name="usun" id="usun" value="Usuń tabelę"
     </form>
 
     <?php

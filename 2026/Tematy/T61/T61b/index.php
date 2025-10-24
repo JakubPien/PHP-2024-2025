@@ -17,9 +17,19 @@
 
 <section>
     <p>
-        1. Baza danych: <strong>3p_2_pacjenci</strong><br>
-        2. Tabela: <strong>tabela_1</strong> (<em>id, imie, nazwisko, email</em>)<br>
-        3. Dane wczytywane z <strong>dane.txt</strong> – jeśli brakuje jakiegokolwiek ID, zostaną automatycznie dopisane.<br>
+        1. Utwórz bazę danych o nazwie 3p_2_pacjenci.
+
+        2. W bazie danych utwórz tabelę tabela_1 zawierającą kolumny:
+
+        identyfikator,
+        imię,
+        nazwisko,
+        email.
+        3. Utwórz plik tekstowy o nazwie dane.txt zawierający dane 3 pacjentów.
+
+        4. Napisz skrypt php, który czyta dane z pliku i zapisuje je do tabeli tabela_1 i wyświetla je na stronie zadanie.php w postaci tabeli.
+
+        Rozwiązanie powinno zawierać: eksport bazy, plik z danymi oraz skrypt php.
     </p>
 
     <?php
