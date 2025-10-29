@@ -11,7 +11,7 @@
 <body>
 
 <header>
-    <h1>Zadanie P59 - ocena procent</h1>
+    <h1>Zadanie P66 - porównywanie dat</h1>
     <h2>Autor: Jakub Pieniężny 3p</h2>
 </header>
 
@@ -35,12 +35,12 @@
 
     <form action="index.php" method="post">
         <fieldset name="Pierwsza data:">
-        <p>Dzień:</p><input type="number" name="dzien1">
+        <p>Dzień:</p><input type="number" name="dz1">
         <p>Miesiąc:</p><input type="number" name="mies1">
         <p>Rok:</p><input type="number" name="rok1">
         </fieldset>
         <fieldset Druga data>
-            <p>Dzień:</p><input type="number" name="dzien2">
+            <p>Dzień:</p><input type="number" name="dz2">
             <p>Miesiąc:</p><input type="number" name="mies2">
             <p>Rok:</p><input type="number" name="rok2">
         </fieldset>
@@ -52,43 +52,33 @@
 <section>
     <?php
     if(isset($_POST['dzialaj'])) {
-        $dz1 = $_POST['dzien1'];
-        $dz2 = $_POST['dzien2'];
-        $mies1 = $_POST['mies1'];
-        $mies2 = $_POST['mies2'];
-        $rok1 = $_POST['rok1'];
-        $rok2 = $_POST['rok2'];
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $dzien1 = htmlspecialchars($_POST["dzien1"]);
-            $miesiac1 = htmlspecialchars($_POST["miesiac1"]);
+            $dzien1 = htmlspecialchars($_POST["dz1"]);
+            $miesiac1 = htmlspecialchars($_POST["mies1"]);
             $rok1 = htmlspecialchars($_POST["rok1"]);
-            $dzien2 = htmlspecialchars($_POST["dzien2"]);
-            $miesiac2 = htmlspecialchars($_POST["miesiac2"]);
+            $dzien2 = htmlspecialchars($_POST["dz2"]);
+            $miesiac2 = htmlspecialchars($_POST["mies2"]);
             $rok2 = htmlspecialchars($_POST["rok2"]);
 
-            echo "<h3>Wynik:</h3>";
 
             if (!checkdate($miesiac1, $dzien1, $rok1)) {
-                echo "❌ Pierwsza data ($dzien1-$miesiac1-$rok1) jest niepoprawna.<br>";
-            } elseif (!checkdate($miesiac2, $dzien2, $rok2)) {
-                echo "❌ Druga data ($dzien2-$miesiac2-$rok2) jest niepoprawna.<br>";
+                echo "Pierwsza data ($dzien1-$miesiac1-$rok1) jest niepoprawna.<br>";
+            } else if (!checkdate($miesiac2, $dzien2, $rok2)) {
+                echo "Druga data ($dzien2-$miesiac2-$rok2) jest niepoprawna.<br>";
             } else {
                 $czas1 = mktime(0, 0, 0, $miesiac1, $dzien1, $rok1);
                 $czas2 = mktime(0, 0, 0, $miesiac2, $dzien2, $rok2);
 
-                echo "📅 Pierwsza data: <b>$dzien1-$miesiac1-$rok1</b><br>";
-                echo "📅 Druga data: <b>$dzien2-$miesiac2-$rok2</b><br><br>";
+                echo "Pierwsza data: $dzien1-$miesiac1-$rok1<br>";
+                echo "Druga data: $dzien2-$miesiac2-$rok2<br>";
 
                 if ($czas1 < $czas2) {
-                    echo "✅ Pierwsza data jest <b>wcześniejsza</b> od drugiej.";
-                } elseif ($czas1 > $czas2) {
-                    echo "✅ Druga data jest <b>wcześniejsza</b> od pierwszej.";
+                    echo "Pierwsza data jest wcześniejsza od drugiej.";
+                } else if ($czas1 > $czas2) {
+                    echo "Druga data jest wcześniejsza od pierwszej.";
                 } else {
-                    echo "✅ Obie daty są takie same.";
+                    echo "Obie daty są takie same.";
                 }
             }
-        }
     }
     ?>
 </section>

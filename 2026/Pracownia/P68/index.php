@@ -18,67 +18,38 @@
 
 <section>
 
-    <pre>
-        Napisz program, który dla podanego wyniku procentowego testów studenckich wystawia ocenę według następującej zasady:
-5 - 90% do 100%
-4,5 - 80% do 89%
-4 - 70% do 79%
-3,5 - 60% do 69%
-3 - 50% do 59%
-2 - poniżej 50%
-    </pre>
+    <p>
+        Napisz program, który określi położenie punktu o współrzędnych (x, y) względem prostokąta wyznaczonego przez proste X=A, X=B, Y=C, Y=D, gdzie A<B i C<D. Program powinien przyjmować dane z formularza (współrzędne punktu oraz parametry prostokąta), weryfikować, czy są to liczby oraz czy A<B i C<D, a następnie wyświetlać dane wejściowe i wynik analizy w czytelny sposób (np. czy punkt leży wewnątrz, na krawędzi czy na zewnątrz prostokąta).
+        <h3>Wskazówki dla ucznia:</h3>
+    Sprawdź, czy wszystkie dane wejściowe są liczbami za pomocą is_numeric().
+    Zweryfikuj warunki A < B i C < D, aby prostokąt był poprawnie zdefiniowany.
+    Punkt leży wewnątrz prostokąta, jeśli x jest między A i B (A < x < B) oraz y jest między C i D (C < y < D).
+    Punkt leży na krawędzi, jeśli x=A lub x=B albo y=C lub y=D (przy zachowaniu pozostałych warunków).
+    Zabezpiecz dane wejściowe za pomocą htmlspecialchars(), aby uniknąć problemów z XSS.
+    </p>
+
 
     <form action="index.php" method="post">
-        <p>Podaj wynik Studenta w (%) = </p><input type="number" name="procent">
-        <input type="submit" value="Wyślij">
+        <fieldset >
+            <label>
+                X:
+                <input type="number" name="x">
+            </label>
+
+            <label>
+                Y:
+                <input type="number" name="y">
+            </label>
+        </fieldset>
+        <fieldset>
+
+        </fieldset>
     </form>
 
 </section>
 
 <section>
     <?php
-
-    if(isset($_POST["procent"])){
-        $procent = $_POST["procent"];
-        $proc = $procent / 10;
-        $proc = floor($proc);
-        if ($proc > 0 && $proc < 5)
-            $proc = 11;
-
-        $ocena = "";
-
-        switch($proc){
-            case 5:
-                $ocena = "3";
-                break;
-            case 6:
-                $ocena = "3.5";
-                break;
-            case 7:
-                $ocena = "4";
-                break;
-            case 8:
-                $ocena = "4.5";
-                break;
-            case 10:
-            case 9:
-                $ocena = "5";
-                break;
-            case 11:
-                $ocena = "2";
-                break;
-            default:
-                $ocena = "Chyba się troche pomyliłeś maks to 100%";
-                break;
-        }
-
-
-        echo "Podana wartość procentowa to: $procent% <br>";
-        echo "  Ocena studenta to: $ocena";
-
-    }
-
-
 
     ?>
 </section>
