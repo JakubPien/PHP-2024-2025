@@ -1,5 +1,5 @@
 <?php
-    $db = mysqli_connect("localhost", "root", "", "3i_2_baza1");
+    $db = mysqli_connect("localhost", "root", "", "3p_2_baza1");
     $q = "SELECT pracownicy.imie, pracownicy.nazwisko, pracownicy.stanowisko, pracownicy.dzial from pracownicy WHERE sekcja = 'drukarki'";
 
     $wynik = mysqli_query($db, $q);
