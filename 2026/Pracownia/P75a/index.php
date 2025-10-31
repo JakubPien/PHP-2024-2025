@@ -18,14 +18,14 @@
 
 <section>
 
-    <p>
+    <pre>
         Napisz program, który dla danej liczby całkowitej n wypisuje wyrazy ciągu Fibonacciego według zależności
 
         <img src="img.png" alt="wzór">
         Dla n=20 program powinien wypisać: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765
 
         podaj liczbę n:
-    </p>
+    </pre>
 
 
     <form action="index.php" method="post">
@@ -33,6 +33,7 @@
             <label>
                 Podaj liczbę n:
                 <input type="number" name="n">
+                <input type="submit" value="Wyślij">
             </label>
 
     </form>
@@ -43,8 +44,13 @@
     <?php
     if (isset($_POST['n'])) {
        $n = htmlspecialchars($_POST['n']);
+       $x = 0;
 
+       for ($i = 0; $i <= $n; $i++) {
+           $x = $i + $x;
 
+           echo "F($i) = $x <br>";
+       }
 
     }
 
