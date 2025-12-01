@@ -20,6 +20,15 @@
 
     <pre>
         Napisz program, który dla podanej liczby całkowitej A oznaczającej ilość znaków w wierszu wyświetla następujący blok znaków.
+
+
+        Przykład:
+                    A=5
+                    <strong>1</strong>0000
+                    0<strong>1</strong>000
+                    00<strong>1</strong>00
+                    000<strong>1</strong>0
+                    0000<strong>1</strong>
     </pre>
 
 
