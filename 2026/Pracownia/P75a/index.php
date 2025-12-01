@@ -44,13 +44,22 @@
     <?php
     if (isset($_POST['n'])) {
        $n = htmlspecialchars($_POST['n']);
-       $x = 0;
+       $a = 0;
+       $b = 1;
+       $index = 0;
 
-       for ($i = 0; $i <= $n; $i++) {
-           $x = $i + $x;
 
-           echo "F($i) = $x <br>";
+       while ($a <= $n) {
+           echo "F($index) = $a<br>";
+
+           $temp = $a + $b;
+           $a = $b;
+           $b = $temp;
+           $index++;
        }
+
+
+
 
     }
 

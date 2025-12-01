@@ -55,7 +55,8 @@ if (isset($_POST['lista'])) {
                 <option value="Obudowa"> Obudowa</option>
                 <option value="Procesor"> Procesor</option>
             </select></p>
-        <p><b>Aby wybrać parę przedmiotów trzymaj klawisz CTRL podczas klikania myszką</b></p><p><input type="submit" value="Wyślij"></p>
+        <p><b>Aby wybrać parę przedmiotów trzymaj klawisz CTRL podczas klikania myszką</b></p>
+        <p><input type="submit" value="Wyślij"></p>
     </form>
     <p><a href="koszyk.php">Przejdź do koszyka</a></p>
     </body>

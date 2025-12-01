@@ -23,7 +23,7 @@ function sortowanie(array $tab1, array $tab2){
 $tab1 = [2,4,6,2,7,4];
 $tab2 = [9,7,4,8,6,3];
 
-$wynik = sortowanie($tab1, $tab2);
+$tab3 = sortowanie($tab1, $tab2);
 echo "Tablica 1: ";
 for ($i = 0; $i < count($tab1); $i++) {
     echo $tab1[$i]." ";
@@ -35,8 +35,8 @@ for ($i = 0; $i < count($tab2); $i++) {
 }
 echo "<br>";
 echo "Tablice połączone: ";
-for ($i = 0; $i < count($wynik); $i++) {
-    echo $wynik[$i]." ";
+for ($i = 0; $i < count($tab3); $i++) {
+    echo $tab3[$i]." ";
 }
 
 ?>
