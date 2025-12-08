@@ -33,7 +33,7 @@
     <form action="index.php" method="POST">
         <h3>Wprowadź liczby całkowite oddzielone przecinkami:</h3>
         <textarea name="values" rows="5" cols="40"></textarea><br><br>
-        <input type="submit" name="submit" value="Wyślij">
+        <input type="submit" value="Wyślij">
     </form>
 
 </section>

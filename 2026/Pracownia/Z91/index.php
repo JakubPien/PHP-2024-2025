@@ -48,22 +48,18 @@
     <?php
 if (isset($_POST['przycisk'])) {
 
-    $n_raw = $_POST['lnum'];
-    $tab_raw = $_POST['numtab'] ?? "";
-
-    $n = $n_raw;
-    $show_n = htmlspecialchars($n_raw);
-    $show_tab = htmlspecialchars($tab_raw);
+    $n = htmlspecialchars($_POST['lnum']);
+    $tab = htmlspecialchars($_POST['numtab']);
 
     $error = null;
 
-    if ($n_raw === "" || !is_numeric($n_raw) || (int)$n_raw != $n_raw || $n_raw >= 100 || $n_raw <= 0) {
+    if ($n === "" || !is_numeric($n) || (int)$n != $n || $n >= 100 || $n <= 0) {
         $error = "n musi być liczbą.";
     } else {
-        $n = (int)$n_raw;
+        $n = (int)$n;
     }
 
-    $elements = array_map('trim', explode(',', $tab_raw));
+    $elements = array_map('trim', explode(',', $tab));
 
     if (!$error) {
         if (count($elements) != $n) {
@@ -78,8 +74,8 @@ if (isset($_POST['przycisk'])) {
         }
     }
 
-    echo "Liczba elementów: n = $show_n<br>";
-    echo "Wprowadzone liczby: $show_tab<br>";
+    echo "Liczba elementów: n = $n<br>";
+    echo "Wprowadzone liczby: $tab<br>";
 
     if ($error) {
         echo "Rezultat: <span>$error</span><br>";

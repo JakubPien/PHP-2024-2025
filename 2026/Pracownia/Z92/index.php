@@ -32,12 +32,12 @@
 
     <form action="index.php" method="post">
         <label>
-            Liczba wierszy (n &lt; 100):<br>
+            Liczba wierszy (n):<br>
             <input type="number" name="n" required><br><br>
         </label>
 
         <label>
-            Liczba kolumn (m &lt; 100):<br>
+            Liczba kolumn (m):<br>
             <input type="number" name="m" required><br><br>
         </label>
 
