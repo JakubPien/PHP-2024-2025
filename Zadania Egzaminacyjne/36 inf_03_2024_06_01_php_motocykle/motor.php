@@ -18,14 +18,31 @@
 
 <div id="lewy">
 
+    <h2>Gdzie pojechać?</h2>
+
     <?php
+    $db = mysqli_connect("localhost", "root", "", "motory");
+    $sql = "SELECT wycieczki.nazwa, wycieczki.opis, wycieczki.poczatek, zdjecia.zrodlo FROM wycieczki JOIN zdjecia ON zdjecia.id = wycieczki.zdjecia_id";
+    $query = mysqli_query($db, $sql);
+
+    echo "<dl>";
+
+        while ($row = mysqli_fetch_assoc($query)) {
+            echo "<dt>";
+            echo $row['nazwa'] . ", rozpoczyna się w " . $row['poczatek'] . ", ";
+            echo "<a href='" . $row['zrodlo'] . "'>zobacz zdjęcie</a>";
+            echo "</dt>";
+
+            echo "<dd>";
+            echo $row['opis'];
+            echo "</dd>";
+        }
+
+        echo "</dl>";
+
 
     ?>
 
-    <h2>Gdzie pojechać?</h2> // skrypt 1 \\
-    <dl>
-
-    </dl>
 </div>
 
 <div id="prawy_1">
@@ -44,9 +61,16 @@
     <p>Wpisanych wycieczek: </p>
 
     <?php
-    $db = mysqli_connect("localhost", "root", "", "3p_2_motory");
-    echo mysqli_query($db, "SELECT COUNT(*) AS ilosc FROM wycieczki;");
+    $db = mysqli_connect("localhost", "root", "", "motory");
+   $sql = "SELECT COUNT(*) AS ilosc FROM wycieczki";
+    $result = mysqli_query($db, $sql);
 
+    $row = mysqli_fetch_assoc($result);
+    $liczba = $row['ilosc'];
+
+    echo $liczba;
+
+    mysqli_close($db);
     ?>
 
     <p>Użytkowników forum: 200</p>
