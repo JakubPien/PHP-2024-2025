@@ -15,27 +15,25 @@
     <h2>Poznaj smoki</h2>
 </header>
 
-<main id="1">
+<main id="main1">
     Blok nawigacyjny
 
-    <nav id="1">
+    <nav id="nav1">
         <p>Baza</p>
     </nav>
-    <nav id="2">
+    <nav id="nav2">
         <p>Opisy</p>
     </nav>
-    <nav id="3"></nav>
+    <nav id="nav3"></nav>
 </main>
 
-<main id="2">
+<main id="main2">
     Blok główny
 
-    <section id="1"></section>
-    <section id="2"></section>
-    <section id="3"></section>
+    <section id="sec1"></section>
+    <section id="sec2"></section>
+    <section id="sec3"></section>
 </main>
-
-
 
 
 <footer>
