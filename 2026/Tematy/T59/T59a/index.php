@@ -1,8 +1,20 @@
+<?php
+$cookie_name = "ostatnio";
+
+if (isset($_COOKIE[$cookie_name])) {
+    $komunikat = "Twoja ostatnia wizyta: " . $_COOKIE[$cookie_name];
+} else {
+    $komunikat = "Witaj pierwszy raz na stronie";
+}
+
+$ostatnia = date("Y-m-d H:i:s");
+setcookie($cookie_name, $ostatnia, time() + (86400 * 30)); // 30 dni
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <title>Zadanie T59</title>
 </head>
 <body>
@@ -14,28 +26,14 @@
 
 <section>
     <p>
-        PHP zastosowanie plików cookies
-
-
-        Napisz skrypt tworzący plik cookie wizyta - określający datę ostatnich odwiedzin strony przez użytkownika oraz skrypt odczytujący tę informację.
-
-        CSS i inne szykany nie są obowiązkowe ;)
+        PHP zastosowanie plików cookies<br>
+        Napisz skrypt tworzący plik cookie z datą ostatniej wizyty i odczytujący go.
     </p>
 </section>
 
 <section>
     <?php
-
-    $cookie_name = "ostatnio";
-    if (isset($_COOKIE[$cookie_name])) {
-        echo "Twoja ostatnia wizyta: ".  $_COOKIE[$cookie_name]. " <br>";
-    } else {
-        echo "Witej pierwszy raz na stronie";
-    }
-
-    $ostatnia = date("Y-m-d H:i:s");
-    setcookie($cookie_name, $ostatnia, time() + (86400 * 30), "/");
-
+    echo $komunikat;
     ?>
 </section>
 

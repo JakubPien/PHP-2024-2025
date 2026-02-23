@@ -2,7 +2,7 @@
 session_start();
 ?>
     <!DOCTYPE HTML>
-    <html>
+    <html lang="">
     <head>
         <title>Koszyk zakupów</title>
         <link rel="stylesheet" href="style.css">
