@@ -38,11 +38,12 @@ echo "Dodanie komentarza nie powiodło się";
 <form action="index.php" method="post">
     <br>
 <p><b>Dodaj swój komentarz na temat globalnego ocieplenia</b>(Maksymalnie 255 znaków)</p>
+    <label>
 <textarea name="komentarz" rows="10" cols="100"
-wrap="virtual"></textarea><br>
+wrap="hard"></textarea>
+    </label><br>
 <input type="submit" value="Wyślij">
 </div>
-</form>
 
 </section>
     <section>
