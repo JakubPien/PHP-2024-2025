@@ -19,22 +19,20 @@ $db = mysqli_connect('localhost', 'root', '', 'medica');
 
 <header>
     <h1>Abonamenty w przychodni Medica</h1>
-
-<?php
-$query1 = "SELECT nazwa, cena, opis FROM abonamenty";
-$result = mysqli_query($db, $query1);
-
-while ($row = mysqli_fetch_assoc($result)) {
-    echo "<h3>Pakiet {$row['nazwa']} - cena {$row['cena']}</h3>";
-    echo "<p>{$row['opis']}</p>";
-}
-?>
-
-    <a href="opis.html">Dowiedz się więcej</a>
-
 </header>
 
 <nav id="artykul">
+    <?php
+    $query1 = "SELECT nazwa, cena, opis FROM abonamenty";
+    $result = mysqli_query($db, $query1);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<h3>Pakiet {$row['nazwa']} - cena {$row['cena']}</h3>";
+        echo "<p>{$row['opis']}</p>";
+    }
+    ?>
+
+    <a href="opis.html">Dowiedz się więcej</a>
 </nav>
 
 <nav id="b_glowny">

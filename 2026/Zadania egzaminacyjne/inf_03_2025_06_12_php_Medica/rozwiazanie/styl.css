@@ -10,12 +10,15 @@ header, footer  {
     clear: both;
 }
 
-.artykul {
-    background-image: url(obraz1.jpg);
+#artykul {
+    background-image: url("obraz1.jpg");
     color: DimGray;
     font-size: 150%;
     height: 350px;
     overflow: scroll;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 section {
