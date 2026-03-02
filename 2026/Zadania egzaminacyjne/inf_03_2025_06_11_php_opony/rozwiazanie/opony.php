@@ -41,7 +41,7 @@ header("Refresh: 10");
             echo "</div>";
         }
         ?>
-        <p><a href="https://opna.pl/">więcej ofert</a></p>
+        <p><a href="https://opona.pl/">więcej ofert</a></p>
     </nav>
 
     <section id="sec1">
