@@ -1,0 +1,15 @@
+kw1:
+
+SELECT tytul, rok, ocena FROM filmy WHERE gatunki_id = 5;
+
+kw2:
+
+SELECT filmy.id, tytul, imie, nazwisko FROM filmy JOIN rezyserzy ON filmy.rezyserzy_id = rezyserzy.id;
+
+kw3:
+
+SELECT id, tytul FROM filmy WHERE rok = 2017 AND ocena = 6;
+
+kw4:
+
+UPDATE rezyserzy SET imie = "Francis Ford" WHERE id = 8;
