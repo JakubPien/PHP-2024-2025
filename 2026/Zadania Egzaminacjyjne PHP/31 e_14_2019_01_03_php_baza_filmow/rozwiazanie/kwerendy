@@ -1,6 +1,6 @@
 kw1:
 
-SELECT tytul, rok, ocena FROM filmy WHERE gatunki_id = 5;
+SELECT tytul, rok, ocena FROM filmy JOIN gatunki ON gatunki_id = gatunki.id WHERE nazwa = "komedia"
 
 kw2:
 

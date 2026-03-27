@@ -15,7 +15,6 @@
 <body>
 
 <section id="b1">
-    Blok 1
     <img src="klaps.png" alt="Nasze filmy">
 </section>
 
@@ -48,7 +47,7 @@
     if (isset($_POST['btn'])) {
         $filmy = $_POST['filmy'];
 
-        $query = "SELECT tytul, rok, ocena FROM filmy WHERE gatunki_id = 5";
+        $query = "SELECT tytul, rok, ocena FROM filmy JOIN gatunki ON gatunki_id = gatunki.id WHERE nazwa = '$filmy'";
         $result = mysqli_query($db, $query);
 
         while ($row = mysqli_fetch_assoc($result)) {
@@ -61,8 +60,6 @@
 <section id="prawy">
     <h2>Wszystkie filmy</h2>
     <?php
-    //Skrypt 2
-
     $query = "SELECT filmy.id, tytul, imie, nazwisko FROM filmy JOIN rezyserzy ON filmy.rezyserzy_id = rezyserzy.id";
     $result = mysqli_query($db, $query);
     while ($row = mysqli_fetch_assoc($result)) {
@@ -73,8 +70,7 @@
 </section>
 
 <footer>
-    Zawartość stopki:
-    <p>Autor: Jakub Pieniężny 3p</p>
+        <p>Autor: Jakub Pieniężny 3p</p>
     <a href="kwerendy">Zapytania do bazy</a>
     <a href="https://www.filmy.pl" target="_blank">Przejdź do filmy.pl</a>
 </footer>
