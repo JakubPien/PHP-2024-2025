@@ -1,0 +1,6 @@
+kw1:
+SELECT rodzaj, nazwa, gramatura, cena FROM wyroby WHERE rodzaj = "INNE";
+kw2:
+SELECT DISTINCT rodzaj FROM wyroby ORDER BY rodzaj DESC
+kw3:
+SELECT id, nazwa FROM wyroby WHERE nazwa LIKE "%Chałka%"
