@@ -42,9 +42,12 @@
     if (isset($_POST["btn1"])) {
         $id = $_POST["ksiazka1"];
 
-        $query = "UPDATE ksiazka SET rezerwacja = 1 WHERE id = $id;";
+        $query1 = "UPDATE ksiazka SET rezerwacja = 1 WHERE id = $id";
+        $query2 = "SELECT tytul FROM ksiazka WHERE id = $id";
+        $result1 = mysqli_query($db, $query1);
+        $result2 = mysqli_query($db, $query2);
 
-        while ($row = mysqli_fetch_assoc($result)) {
+        while ($row = mysqli_fetch_assoc($result2)) {
             echo "<p>Książka {$row['tytul']} została zarezerwowana</p>";
         }
 
@@ -71,9 +74,12 @@
     if (isset($_POST["btn2"])) {
         $id = $_POST["ksiazka2"];
 
-        $query = "UPDATE ksiazka SET rezerwacja = 1 WHERE id = $id;";
+        $query1 = "UPDATE ksiazka SET rezerwacja = 1 WHERE id = $id";
+        $query2 = "SELECT tytul FROM ksiazka WHERE id = $id";
+        $result1 = mysqli_query($db, $query1);
+        $result2 = mysqli_query($db, $query2);
 
-        while ($row = mysqli_fetch_assoc($result)) {
+        while ($row = mysqli_fetch_assoc($result2)) {
             echo "<p>Książka {$row['tytul']} została zarezerwowana</p>";
         }
 
@@ -100,9 +106,12 @@
     if (isset($_POST["btn3"])) {
         $id = $_POST["ksiazka3"];
 
-        $query = "UPDATE ksiazka SET rezerwacja = 1 WHERE id = $id;";
+        $query1 = "UPDATE ksiazka SET rezerwacja = 1 WHERE id = $id";
+        $query2 = "SELECT tytul FROM ksiazka WHERE id = $id";
+        $result1 = mysqli_query($db, $query1);
+        $result2 = mysqli_query($db, $query2);
 
-        while ($row = mysqli_fetch_assoc($result)) {
+        while ($row = mysqli_fetch_assoc($result2)) {
             echo "<p>Książka {$row['tytul']} została zarezerwowana</p>";
         }
 
