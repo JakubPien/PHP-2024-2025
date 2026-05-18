@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Stylizacja paznokci</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+
+<aside>
+    <img src="manicure.jpg" alt="Stylizacja paznokci">
+</aside>
+
+<main>
+    <article>
+        <h1>Twoje wymarzone paznokcie</h1>
+    </article>
+    <nav>
+        <button id="btn1">Kolor</button>
+        <button id="btn2">Kształt</button>
+        <button id="btn3">Wzór</button>
+        <script>
+            let btn1 = document.getElementById("btn1")
+            let btn2 = document.getElementById("btn2")
+            let btn3 = document.getElementById("btn3")
+
+            let sec1 = document.getElementById("sec1")
+            let sec2 = document.getElementById("sec2")
+            let sec3 = document.getElementById("sec3")
+
+            btn1.addEventListener("onmouseover", function () {
+                sec1.style.display = "block"
+                sec2.style.display = "none"
+                sec3.style.display = "none"
+
+                btn1.style.backgroundColor = "Salmon"
+                btn2.style.backgroundColor = "Crimson"
+                btn3.style.backgroundColor = "Crimson"
+            })
+
+            btn1.addEventListener("onmouseover", function () {
+                sec1.style.display = "block"
+                sec2.style.display = "none"
+                sec3.style.display = "none"
+
+                btn1.style.backgroundColor = "Salmon"
+                btn2.style.backgroundColor = "Crimson"
+                btn3.style.backgroundColor = "Crimson"
+            })
+
+            btn2.addEventListener("onmouseover", function () {
+                sec1.style.display = "none"
+                sec2.style.display = "block"
+                sec3.style.display = "none"
+
+                btn1.style.backgroundColor = "Crimson"
+                btn2.style.backgroundColor = "Salmon"
+                btn3.style.backgroundColor = "Crimson"
+            })
+
+            btn3.addEventListener("onmouseover", function () {
+                sec1.style.display = "none"
+                sec2.style.display = "none"
+                sec3.style.display = "block"
+
+                btn1.style.backgroundColor = "Crimson"
+                btn2.style.backgroundColor = "Crimson"
+                btn3.style.backgroundColor = "Salmon"
+            })
+
+        </script>
+    </nav>
+
+    <section id="sec1">
+        <h2>Kolor</h2>
+        <img src="kolory.png" alt="Kolory paznokci">
+        <br>
+        <label>
+            <input type="color" value="#FF0000">
+        </label>
+    </section>
+
+    <section id="sec2">
+        <h2>Kształt</h2>
+        <img src="ksztalt.png" alt="Kształty paznokci">
+        <label for="ksztalt"></label><select name="ksztalt" id="ksztalt">
+            <option value="migdał">migdał</option>
+            <option value="zaokrąglony">zaokrąglony</option>
+            <option value="kwadratowy">kwadratowy</option>
+            <option value="balerina">balerina</option>
+            <option value="zaokrąglony kwadrat">zaokrąglony kwadrat</option>
+        </select>
+    </section>
+
+    <section id="sec3">
+        <h2>Wzór</h2>
+        <script src="paznokcie.php">
+
+        </script>
+        <label>
+            <input type="number" min="1" max="10">
+        </label>
+    </section>
+</main>
+
+<footer>
+    <p>Autor: <i>Jakub Pieniężny</i></p>
+</footer>
+
+</body>
+</html>
