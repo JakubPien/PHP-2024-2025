@@ -1,8 +1,11 @@
-kw1:
-SELECT imie, kolor, cena FROM klienci WHERE topKlient = 1
-kw2:
-SELECT imie, cena FROM klienci WHERE termin = "2024-05-23" BŁĄD!!!!!!!!!!!!!!!!!!!!!!!!!! NIE WIEM JAK
-kw3:
-SELECT imie, kolor, ksztalt FROM klienci JOIN ksztalty ON ksztalty_id = ksztalty.id WHERE ksztalt = "migdał"
-kw4:
-ALTER TABLE wzory ADD COLUMN doplata INT
+Zapytanie 1:
+SELECT imie, kolor, cena FROM klienci WHERE topKlient = 1;
+
+Zapytanie 2:
+SELECT imie, cena FROM klienci WHERE DATE(termin) = '2024-05-23'; Do zrobienia SCREENa
+
+Zapytanie 3:
+SELECT klienci.imie, klienci.kolor, ksztalty.ksztalt FROM klienci JOIN ksztalty ON klienci.ksztalty_id = ksztalty.id WHERE ksztalty.ksztalt = 'migdał';
+
+Zapytanie 4:
+ALTER TABLE wzory ADD COLUMN doplata INT;

@@ -1,9 +1,9 @@
 * {
-    font-family: Trebuchet MS, sans-serif;
+    font-family: "Trebuchet MS", sans-serif;
 }
 
 body {
-    background: BlanchedAlmond;
+    background-color: BlanchedAlmond;
     text-align: center;
 }
 
@@ -12,12 +12,13 @@ aside {
     float: left;
 }
 
-aside img {
+aside > img {
     width: 100%;
 }
 
 main {
     width: 80%;
+    float: left;
 }
 
 nav {
@@ -25,22 +26,21 @@ nav {
     margin-left: 10%;
 }
 
-section {
+#sekcjaKolor,
+#sekcjaKsztalt,
+#sekcjaWzor {
     background-color: Salmon;
     margin-left: 10%;
     padding: 10px;
     height: 250px;
 }
 
-#sec1 {
+#sekcjaKolor {
     display: block;
 }
 
-#sec2 {
-    display: none;
-}
-
-#sec3 {
+#sekcjaKsztalt,
+#sekcjaWzor {
     display: none;
 }
 
@@ -55,20 +55,16 @@ button {
     font-size: 200%;
 }
 
-#btn1 {
+button:first-child {
     background-color: Salmon;
 }
 
-#btn2 {
-    background-color: Crimson;
-}
-
-#btn3 {
+button:not(:first-child) {
     background-color: Crimson;
 }
 
 .wzory {
-    width:70px;
+    width: 70px;
     margin: 5px;
     border-radius: 100%;
 }

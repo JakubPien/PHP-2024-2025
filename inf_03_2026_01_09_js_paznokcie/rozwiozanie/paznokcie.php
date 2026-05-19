@@ -1,6 +1,91 @@
-<?php
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Stylizacja paznokci</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+<aside>
+    <img src="manicure.jpg" alt="Stylizacja paznokci">
+</aside>
 
-for ($i = 1; $i <= 10; $i++) {
-    echo "<img src='$i.jpg' alt='$1' class='wzory'> ";
-}
+<main>
+    <header>
+        <h1>Twoje wymarzone paznokcie</h1>
+    </header>
 
+    <nav>
+        <button id="przyciskKolor" type="button">Kolor</button>
+        <button id="przyciskKsztalt" type="button">Kształt</button>
+        <button id="przyciskWzor" type="button">Wzór</button>
+    </nav>
+
+    <section id="sekcjaKolor">
+        <h2>Kolor</h2>
+        <img src="kolory.png" alt="Kolory paznokci"><br>
+        <input type="color" value="#FF0000">
+    </section>
+
+    <section id="sekcjaKsztalt">
+        <h2>Kształt</h2>
+        <img src="ksztalt.png" alt="Kształty paznokci"><br>
+        <select>
+            <option>migdał</option>
+            <option>zaokrąglony</option>
+            <option>kwadratowy</option>
+            <option>balerina</option>
+            <option>zaokrąglony kwadrat</option>
+        </select>
+    </section>
+
+    <section id="sekcjaWzor">
+        <h2>Wzór</h2>
+        <?php
+        for ($numerWzoru = 1; $numerWzoru <= 10; $numerWzoru++) {
+            echo "<img src=\"$numerWzoru.jpg\" alt=\"Wzór $numerWzoru\" title=\"$numerWzoru\" class=\"wzory\"> ";
+        }
+        ?>
+        <br>
+        <input type="number" min="1" max="10" step="1">
+    </section>
+</main>
+
+<footer>
+    <p>Autor strony: <em>00000000000</em></p>
+</footer>
+
+<script>
+    const sekcje = [
+        document.getElementById("sekcjaKolor"),
+        document.getElementById("sekcjaKsztalt"),
+        document.getElementById("sekcjaWzor")
+    ];
+
+    const przyciski = [
+        document.getElementById("przyciskKolor"),
+        document.getElementById("przyciskKsztalt"),
+        document.getElementById("przyciskWzor")
+    ];
+
+    function pokazSekcje(numerSekcji) {
+        for (let indeks = 0; indeks < sekcje.length; indeks++) {
+            sekcje[indeks].style.display = indeks === numerSekcji ? "block" : "none";
+            przyciski[indeks].style.backgroundColor = indeks === numerSekcji ? "Salmon" : "Crimson";
+        }
+    }
+
+    przyciski[0].addEventListener("mouseover", function () {
+        pokazSekcje(0);
+    });
+
+    przyciski[1].addEventListener("mouseover", function () {
+        pokazSekcje(1);
+    });
+
+    przyciski[2].addEventListener("mouseover", function () {
+        pokazSekcje(2);
+    });
+</script>
+</body>
+</html>
