@@ -2,7 +2,7 @@ Zapytanie 1:
 SELECT imie, kolor, cena FROM klienci WHERE topKlient = 1;
 
 Zapytanie 2:
-SELECT imie, cena FROM klienci WHERE DATE(termin) = '2024-05-23'; Do zrobienia SCREENa
+SELECT imie, cena FROM klienci WHERE DATE(termin) = '2024-05-23';
 
 Zapytanie 3:
 SELECT klienci.imie, klienci.kolor, ksztalty.ksztalt FROM klienci JOIN ksztalty ON klienci.ksztalty_id = ksztalty.id WHERE ksztalty.ksztalt = 'migdał';
