@@ -1,0 +1,8 @@
+kw1:
+SELECT nazwa, plik FROM towar LIMIT 10;
+kw2:
+SELECT id, nazwa FROM towar;
+kw3:
+SELECT rodzaj, nazwa, cena FROM towar WHERE id = 1;
+kw4:
+INSERT INTO zamowienie (id_towar, id_sklep, liczba_kg) VALUES (9, 2, 20);
