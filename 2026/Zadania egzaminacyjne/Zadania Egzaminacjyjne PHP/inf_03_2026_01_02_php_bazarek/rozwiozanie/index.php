@@ -1,5 +1,5 @@
 <?php
-    $db = mysqli_connect("localhost", "root", "", "bazar")
+    $db = mysqli_connect("localhost", "root", "", "bazar");
 ?>
 
 <!doctype html>
@@ -20,10 +20,9 @@
 
 <nav>
     <?php
-    ///skrypt 1
         $query = "SELECT nazwa, plik FROM towar LIMIT 10";
         $result = mysqli_query($db, $query);
-        while($row = mysqli_fetch_row($result)) {
+        while($row = mysqli_fetch_assoc($result)) {
             echo "<img src='{$row['plik']}' alt='{$row['nazwa']}'>";
         }
     ?>
@@ -38,22 +37,34 @@
         <p>Wybierz owoc lub warzywo i podaj jego wagę:</p>
 
         <form action="index.php" method="post">
-            <select name="owoce" id="owoce"></select>
+            <select name="owoce" id="owoce">
             <?php
-                ///skrypt 2
                 $query = "SELECT id, nazwa FROM towar";
                 $result = mysqli_query($db, $query);
-                while($row = mysqli_fetch_row($result)) {
-                    echo "<option name='owoce' value='{$row['id']}'>{$row['nazwa']}</option>";
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo "<option value='{$row['id']}'>{$row['nazwa']}</option>";
                 }
             ?>
-            <input type="number">
+            </select>
+            <input type="number" name="kilogramy">
             <button>Zamów</button>
         </form>
 
         <?php
-            ///skrypt 3
-            if ()
+            if (isset($_POST['owoce']) && isset($_POST['kilogramy'])) {
+                $idTowaru = $_POST['owoce'];
+                $kilogramy = $_POST['kilogramy'];
+
+                $query = "SELECT rodzaj, nazwa, cena FROM towar WHERE id = $idTowaru";
+                $result = mysqli_query($db, $query);
+                $row = mysqli_fetch_assoc($result);
+
+                $wartosc = $row['cena'] * $kilogramy;
+                echo "<p>{$row['rodzaj']} {$row['nazwa']} wartość: $wartosc zł</p>";
+
+                $query = "INSERT INTO zamowienie (id_towar, id_sklep, liczba_kg) VALUES ($idTowaru, 2, $kilogramy)";
+                mysqli_query($db, $query);
+            }
         ?>
 
     </section>
@@ -66,4 +77,6 @@
 </body>
 </html>
 
-
+<?php
+mysqli_close($db);
+?>
